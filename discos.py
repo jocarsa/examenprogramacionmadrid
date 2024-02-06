@@ -1,3 +1,5 @@
+import sqlite3
+
 def menu():
     print("Escoge una opción:")
     print("1.-Listar registros")
@@ -13,6 +15,16 @@ def menu():
         print("Buscamos un registro")
     elif opcion == "3":
         print("Insertamos un registro")
+        artista = input("Introduce el artista: ")
+        anio = input("Introduce el año: ")
+        titulo = input("Introduce el título: ")
+        conexion = sqlite3.connect("discos.db")
+        cursor = conexion.cursor()
+        peticion = "INSERT INTO discos VALUES (NULL,'"+artista+"',"+str(anio)+",'"+titulo+"')"
+        cursor.execute(peticion)
+        conexion.commit()
+        conexion.close()
+        print("Tu registro se ha insertado correctamente")
     elif opcion == "4":
         print("Actualizamos un registro")
     elif opcion == "5":
