@@ -24,6 +24,18 @@ def menu():
         conexion.close()
     elif opcion == "2":
         print("Buscamos un registro")
+        artista = input("Introduce una palabra del artista:")
+        conexion = sqlite3.connect("discos.db")
+        cursor = conexion.cursor()
+        peticion = "SELECT * FROM discos WHERE artista LIKE '%"+artista+"%'"
+        cursor.execute(peticion)
+        while True:
+            fila = cursor.fetchone()
+            if fila is None:
+                break
+            print(fila)
+        conexion.commit()
+        conexion.close()
     elif opcion == "3":
         print("Insertamos un registro")
         artista = input("Introduce el artista: ")
