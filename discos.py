@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 
 def menu():
     print("Escoge una opción:")
@@ -72,6 +73,7 @@ def menu():
         conexion.close()
     elif opcion == "6":
         print("Salimos")
+        sys.exit()
     menu()
 
 menu()
