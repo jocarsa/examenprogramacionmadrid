@@ -49,6 +49,18 @@ def menu():
         print("Tu registro se ha insertado correctamente")
     elif opcion == "4":
         print("Actualizamos un registro")
+        print("Insertamos un registro")
+        identificador = input("Introduce el identificador: ")
+        artista = input("Introduce el artista: ")
+        anio = input("Introduce el año: ")
+        titulo = input("Introduce el título: ")
+        conexion = sqlite3.connect("discos.db")
+        cursor = conexion.cursor()
+        peticion = "UPDATE discos SET artista = '"+artista+"',anio="+anio+",titulo='"+titulo+"' WHERE Identificador="+identificador+""
+        cursor.execute(peticion)
+        conexion.commit()
+        conexion.close()
+        print("Tu registro se ha insertado correctamente")
     elif opcion == "5":
         print("Eliminamos un registro")
         identificador = input("Introduce el id del registro a eliminar: ")
