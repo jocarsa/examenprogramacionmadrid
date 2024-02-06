@@ -11,6 +11,17 @@ def menu():
     opcion = input("Escoge una opción: ")
     if opcion == "1":
         print("Listado de registros")
+        conexion = sqlite3.connect("discos.db")
+        cursor = conexion.cursor()
+        peticion = "SELECT * FROM discos"
+        cursor.execute(peticion)
+        while True:
+            fila = cursor.fetchone()
+            if fila is None:
+                break
+            print(fila)
+        conexion.commit()
+        conexion.close()
     elif opcion == "2":
         print("Buscamos un registro")
     elif opcion == "3":
