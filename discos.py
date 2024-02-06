@@ -28,11 +28,10 @@ def menu():
         conexion = sqlite3.connect("discos.db")
         cursor = conexion.cursor()
         peticion = "SELECT * FROM discos WHERE artista LIKE '%"+artista+"%'"
-        cursor.execute(peticion)
         while True:
             fila = cursor.fetchone()
-            if fila is None:
-                break
+            #if fila is None:
+            #    break
             print(fila)
         conexion.commit()
         conexion.close()
