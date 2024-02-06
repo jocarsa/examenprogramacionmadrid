@@ -6,7 +6,19 @@ def menu():
     print("4.-Actualizar registros")
     print("5.-Eliminar registros")
     print("6.-Salir")
-    input("Escoge una opción: ")
+    opcion = input("Escoge una opción: ")
+    if opcion == "1":
+        print("Listado de registros")
+    elif opcion == "2":
+        print("Buscamos un registro")
+    elif opcion == "3":
+        print("Insertamos un registro")
+    elif opcion == "4":
+        print("Actualizamos un registro")
+    elif opcion == "5":
+        print("Eliminamos un registro")
+    elif opcion == "6":
+        print("Salimos")
     menu()
 
 menu()
